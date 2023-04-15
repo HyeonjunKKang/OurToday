@@ -16,6 +16,15 @@
 		FAB2868229EA9A5D000FD933 /* AnniversaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2868129EA9A5D000FD933 /* AnniversaryViewController.swift */; };
 		FAB2868429EA9A6D000FD933 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2868329EA9A6D000FD933 /* SettingViewController.swift */; };
 		FAB2868729EA9F5A000FD933 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2868629EA9F5A000FD933 /* UIImage+Extension.swift */; };
+		FAEDB1A729EAB3FE00805959 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1A629EAB3FE00805959 /* MainView.swift */; };
+		FAEDB1AA29EAB50D00805959 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1A929EAB50D00805959 /* SnapKit */; };
+		FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1AB29EAD3C400805959 /* Constant.swift */; };
+		FAEDB1AF29EADB3200805959 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1AE29EADB3200805959 /* SDWebImage */; };
+		FAEDB1B129EADB3200805959 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B029EADB3200805959 /* SDWebImageMapKit */; };
+		FAEDB1B429EADBC800805959 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B329EADBC800805959 /* Realm */; };
+		FAEDB1B629EADBC800805959 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B529EADBC800805959 /* RealmSwift */; };
+		FAEDB1B829EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */; };
+		FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,10 @@
 		FAB2868129EA9A5D000FD933 /* AnniversaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryViewController.swift; sourceTree = "<group>"; };
 		FAB2868329EA9A6D000FD933 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FAB2868629EA9F5A000FD933 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FAEDB1A629EAB3FE00805959 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FAEDB1AB29EAD3C400805959 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickTheDayOfOurFirstMeetViewController.swift; sourceTree = "<group>"; };
+		FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickBirthDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +50,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEDB1AF29EADB3200805959 /* SDWebImage in Frameworks */,
+				FAEDB1B129EADB3200805959 /* SDWebImageMapKit in Frameworks */,
+				FAEDB1B429EADBC800805959 /* Realm in Frameworks */,
+				FAEDB1B629EADBC800805959 /* RealmSwift in Frameworks */,
+				FAEDB1AA29EAB50D00805959 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,8 @@
 				FAB2867D29EA9969000FD933 /* MainViewController.swift */,
 				FAB2868129EA9A5D000FD933 /* AnniversaryViewController.swift */,
 				FAB2868329EA9A6D000FD933 /* SettingViewController.swift */,
+				FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */,
+				FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,6 +117,7 @@
 		FAB2867B29EA994C000FD933 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDB1A629EAB3FE00805959 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB2868629EA9F5A000FD933 /* UIImage+Extension.swift */,
+				FAEDB1AB29EAD3C400805959 /* Constant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -132,6 +154,13 @@
 			dependencies = (
 			);
 			name = OurToday;
+			packageProductDependencies = (
+				FAEDB1A929EAB50D00805959 /* SnapKit */,
+				FAEDB1AE29EADB3200805959 /* SDWebImage */,
+				FAEDB1B029EADB3200805959 /* SDWebImageMapKit */,
+				FAEDB1B329EADBC800805959 /* Realm */,
+				FAEDB1B529EADBC800805959 /* RealmSwift */,
+			);
 			productName = OurToday;
 			productReference = FAB2865F29EA8F0B000FD933 /* OurToday.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +189,11 @@
 				Base,
 			);
 			mainGroup = FAB2865629EA8F0B000FD933;
+			packageReferences = (
+				FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = FAB2866029EA8F0B000FD933 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -187,11 +221,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB2867E29EA9969000FD933 /* MainViewController.swift in Sources */,
+				FAEDB1A729EAB3FE00805959 /* MainView.swift in Sources */,
+				FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */,
+				FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */,
 				FAB2868729EA9F5A000FD933 /* UIImage+Extension.swift in Sources */,
 				FAB2866329EA8F0B000FD933 /* AppDelegate.swift in Sources */,
 				FAB2868029EA998D000FD933 /* MainTabController.swift in Sources */,
 				FAB2866529EA8F0B000FD933 /* SceneDelegate.swift in Sources */,
 				FAB2868229EA9A5D000FD933 /* AnniversaryViewController.swift in Sources */,
+				FAEDB1B829EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift in Sources */,
 				FAB2868429EA9A6D000FD933 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +440,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAEDB1A929EAB50D00805959 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		FAEDB1AE29EADB3200805959 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		FAEDB1B029EADB3200805959 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		FAEDB1B329EADBC800805959 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FAEDB1B529EADBC800805959 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAB2865729EA8F0B000FD933 /* Project object */;
 }

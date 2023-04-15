@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Right Chevron.png",
+      "filename" : "lunchScreenLogo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Right Chevron@2x.png",
+      "filename" : "lunchScreenLogo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Right Chevron@3x.png",
+      "filename" : "lunchScreenLogo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
