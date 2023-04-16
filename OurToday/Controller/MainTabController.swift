@@ -7,7 +7,11 @@
 
 import UIKit
 
-class MainTabController: UITabBarController{
+final class MainTabController: UITabBarController{
+    
+    // MARK: - Properties
+    
+    let loveModel: LoveModel
     
     // MARK: - Lifecycle
     
@@ -17,23 +21,31 @@ class MainTabController: UITabBarController{
         configureViewController()
     }
     
+    // MARK: - Initializer
+    
+    init(loveModel: LoveModel) {
+        self.loveModel = loveModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Helper
     
     func configureViewController(){
-        view.backgroundColor = .white
         
-        let main = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Home"), selectedImage: #imageLiteral(resourceName: "selected-Home"), rootViewController: MainViewController())
+        view.backgroundColor = .white
+       
+        let main = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Home"), selectedImage: #imageLiteral(resourceName: "selected-Home"), rootViewController: MainViewController(viewModel: MainViewModel(loveModel: loveModel)))
         
         let Anniversary = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Bulleted List"), selectedImage: #imageLiteral(resourceName: "selected-Bulleted List"), rootViewController: AnniversaryViewController())
         
         viewControllers = [main, Anniversary]
-       
-        
-        
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController{
-        let insets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0) // 이미지 위치 조절
         let nav = UINavigationController(rootViewController: rootViewController)
         
         let iconSize = CGSize(width: 30, height: 30)
