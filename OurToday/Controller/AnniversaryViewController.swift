@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AnniversaryViewController: UIViewController {
+final class AnniversaryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
