@@ -12,10 +12,9 @@ class MainView: UIView{
     
     // MARK: - Properties
     
-    let photoImageView: UIImageView = {
+    let mainImageView: UIImageView = {
         let imageview = UIImageView()
-        imageview.contentMode = .scaleAspectFill
-        imageview.image = #imageLiteral(resourceName: "mainImage")
+        imageview.contentMode = .scaleToFill
         
         return imageview
     }()
@@ -113,7 +112,7 @@ class MainView: UIView{
     func configureUI(){
         
         [
-            photoImageView,
+            mainImageView,
             loveDayLabel,
             heartImageView,
             myImageView,
@@ -127,7 +126,7 @@ class MainView: UIView{
             
         ].forEach{ addSubview($0)}
         
-        photoImageView.snp.makeConstraints{ make in
+        mainImageView.snp.makeConstraints{ make in
             make.top.equalTo(safeAreaLayoutGuide).offset(10)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -135,7 +134,7 @@ class MainView: UIView{
         }
         
         loveDayLabel.snp.makeConstraints { make in
-            make.top.equalTo(photoImageView.snp.bottom).offset(8)
+            make.top.equalTo(mainImageView.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
             make.height.equalTo(30)
