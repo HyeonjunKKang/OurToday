@@ -21,10 +21,15 @@
 		FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1AB29EAD3C400805959 /* Constant.swift */; };
 		FAEDB1AF29EADB3200805959 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1AE29EADB3200805959 /* SDWebImage */; };
 		FAEDB1B129EADB3200805959 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B029EADB3200805959 /* SDWebImageMapKit */; };
-		FAEDB1B429EADBC800805959 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B329EADBC800805959 /* Realm */; };
-		FAEDB1B629EADBC800805959 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1B529EADBC800805959 /* RealmSwift */; };
 		FAEDB1B829EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */; };
 		FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */; };
+		FAEDB1BC29EADD8500805959 /* IncludeCalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1BB29EADD8400805959 /* IncludeCalenderView.swift */; };
+		FAEDB1BF29EADF8100805959 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1BE29EADF8100805959 /* FSCalendar */; };
+		FAEDB1C729EB10A900805959 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1C629EB10A900805959 /* UserDefaultsManager.swift */; };
+		FAEDB1CA29EB971A00805959 /* DelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1C929EB971A00805959 /* DelegateProtocol.swift */; };
+		FAEDB1CC29EB9D5500805959 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */; };
+		FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CD29EBA94A00805959 /* SettingView.swift */; };
+		FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,12 @@
 		FAEDB1AB29EAD3C400805959 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickTheDayOfOurFirstMeetViewController.swift; sourceTree = "<group>"; };
 		FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickBirthDayViewController.swift; sourceTree = "<group>"; };
+		FAEDB1BB29EADD8400805959 /* IncludeCalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludeCalenderView.swift; sourceTree = "<group>"; };
+		FAEDB1C629EB10A900805959 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		FAEDB1C929EB971A00805959 /* DelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProtocol.swift; sourceTree = "<group>"; };
+		FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FAEDB1CD29EBA94A00805959 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +62,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEDB1AF29EADB3200805959 /* SDWebImage in Frameworks */,
+				FAEDB1BF29EADF8100805959 /* FSCalendar in Frameworks */,
 				FAEDB1B129EADB3200805959 /* SDWebImageMapKit in Frameworks */,
-				FAEDB1B429EADBC800805959 /* Realm in Frameworks */,
-				FAEDB1B629EADBC800805959 /* RealmSwift in Frameworks */,
 				FAEDB1AA29EAB50D00805959 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +94,7 @@
 				FAB2867B29EA994C000FD933 /* View */,
 				FAB2867A29EA9945000FD933 /* ViewModel */,
 				FAB2867629EA991C000FD933 /* Controller */,
+				FAEDB1C829EB8EAF00805959 /* Api */,
 				FAB2868529EA9F2E000FD933 /* Utils */,
 				FAB2866229EA8F0B000FD933 /* AppDelegate.swift */,
 				FAB2866429EA8F0B000FD933 /* SceneDelegate.swift */,
@@ -100,9 +111,9 @@
 				FAB2867F29EA998D000FD933 /* MainTabController.swift */,
 				FAB2867D29EA9969000FD933 /* MainViewController.swift */,
 				FAB2868129EA9A5D000FD933 /* AnniversaryViewController.swift */,
-				FAB2868329EA9A6D000FD933 /* SettingViewController.swift */,
 				FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */,
 				FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */,
+				FAB2868329EA9A6D000FD933 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 		FAB2867A29EA9945000FD933 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				FAEDB1A629EAB3FE00805959 /* MainView.swift */,
+				FAEDB1BB29EADD8400805959 /* IncludeCalenderView.swift */,
+				FAEDB1CD29EBA94A00805959 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +139,7 @@
 		FAB2867C29EA9953000FD933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +151,15 @@
 				FAEDB1AB29EAD3C400805959 /* Constant.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAEDB1C829EB8EAF00805959 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDB1C929EB971A00805959 /* DelegateProtocol.swift */,
+				FAEDB1C629EB10A900805959 /* UserDefaultsManager.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +182,7 @@
 				FAEDB1A929EAB50D00805959 /* SnapKit */,
 				FAEDB1AE29EADB3200805959 /* SDWebImage */,
 				FAEDB1B029EADB3200805959 /* SDWebImageMapKit */,
-				FAEDB1B329EADBC800805959 /* Realm */,
-				FAEDB1B529EADBC800805959 /* RealmSwift */,
+				FAEDB1BE29EADF8100805959 /* FSCalendar */,
 			);
 			productName = OurToday;
 			productReference = FAB2865F29EA8F0B000FD933 /* OurToday.app */;
@@ -192,7 +215,7 @@
 			packageReferences = (
 				FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				FAEDB1BD29EADF8100805959 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = FAB2866029EA8F0B000FD933 /* Products */;
 			projectDirPath = "";
@@ -221,14 +244,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB2867E29EA9969000FD933 /* MainViewController.swift in Sources */,
+				FAEDB1CA29EB971A00805959 /* DelegateProtocol.swift in Sources */,
 				FAEDB1A729EAB3FE00805959 /* MainView.swift in Sources */,
+				FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */,
 				FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */,
 				FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */,
 				FAB2868729EA9F5A000FD933 /* UIImage+Extension.swift in Sources */,
 				FAB2866329EA8F0B000FD933 /* AppDelegate.swift in Sources */,
+				FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */,
+				FAEDB1CC29EB9D5500805959 /* MainViewModel.swift in Sources */,
 				FAB2868029EA998D000FD933 /* MainTabController.swift in Sources */,
 				FAB2866529EA8F0B000FD933 /* SceneDelegate.swift in Sources */,
+				FAEDB1C729EB10A900805959 /* UserDefaultsManager.swift in Sources */,
 				FAB2868229EA9A5D000FD933 /* AnniversaryViewController.swift in Sources */,
+				FAEDB1BC29EADD8500805959 /* IncludeCalenderView.swift in Sources */,
 				FAEDB1B829EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift in Sources */,
 				FAB2868429EA9A6D000FD933 /* SettingViewController.swift in Sources */,
 			);
@@ -458,12 +487,12 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		FAEDB1BD29EADF8100805959 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -484,15 +513,10 @@
 			package = FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
-		FAEDB1B329EADBC800805959 /* Realm */ = {
+		FAEDB1BE29EADF8100805959 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		FAEDB1B529EADBC800805959 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FAEDB1B229EADBC800805959 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
+			package = FAEDB1BD29EADF8100805959 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
