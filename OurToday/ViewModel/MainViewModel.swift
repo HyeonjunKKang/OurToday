@@ -28,12 +28,14 @@ final class MainViewModel{
     }
     
     var howMany: String?{
-        let today = Date()
+        let calendar = Calendar.current
         guard let loveDay = loveModel.firstLoveDay else { return "우리 사랑한지 0일" }
         
-        let secondBeetween = today.timeIntervalSince(loveDay)
-        let daysBetween = Int(secondBeetween / 84600)
-        return "우리 사랑한지 \(daysBetween)일"
+        let today = Date()
+        let start = calendar.startOfDay(for: loveDay)
+        let end = calendar.startOfDay(for: today)
+        let components = calendar.dateComponents([.day], from: start, to: end)
+        return "우리 사랑한지 \(components.day ?? 0)일"
     }
     
     var loverBirthDay: Date?{
@@ -88,6 +90,26 @@ final class MainViewModel{
     
     init(loveModel: LoveModel) {
         self.loveModel = loveModel
+    }
+    
+    // MARK: - Helpers
+    
+    func setMyImage(image: UIImage){
+        if let imageData = image.pngData(){
+            loveModel.myImage = imageData
+        }
+    }
+    
+    func setMainImage(image: UIImage){
+        if let imageData = image.pngData(){
+            loveModel.mainImage = imageData
+        }
+    }
+    
+    func setLoverImage(image: UIImage){
+        if let imageData = image.pngData(){
+            loveModel.loverImage = imageData
+        }
     }
     
 }
