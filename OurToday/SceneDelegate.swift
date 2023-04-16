@@ -19,9 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: MainTabController())
-        window?.makeKeyAndVisible()
+        UserDefaultsManager.shared.loadUserDefaults { loveModel in
+            window = UIWindow(windowScene: windowScene)
+            window?.rootViewController = UINavigationController(rootViewController: MainTabController(loveModel: loveModel))
+    //        window?.rootViewController = PickTheDayOfOurFirstMeetViewController()
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
