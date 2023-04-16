@@ -112,4 +112,11 @@ final class MainViewModel{
         }
     }
     
+    func setMyNickname(nickName: String){
+        loveModel.myNickname = nickName
+    }
+    
+    func setLoverNickname(nickName: String){
+        loveModel.loverNickname = nickName
+    }
 }

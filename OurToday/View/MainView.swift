@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import PhotosUI
 
 class MainView: UIView{
     
@@ -95,6 +96,28 @@ class MainView: UIView{
         return cv
     }()
     
+    let configuration: PHPickerConfiguration = {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = .any(of: [.images])
+        
+        return config
+    }()
+    
+    lazy var myPicker: PHPickerViewController = {
+        let picker = PHPickerViewController(configuration: self.configuration)
+        picker.view.tag = 1
+        
+        return picker
+    }()
+    
+    lazy var loverPicker: PHPickerViewController = {
+        let picker = PHPickerViewController(configuration: self.configuration)
+        picker.view.tag = 2
+        
+        return picker
+    }()
+    
     // MARK: - LifeCycle
     
     override init(frame: CGRect) {
@@ -127,10 +150,10 @@ class MainView: UIView{
         ].forEach{ addSubview($0)}
         
         mainImageView.snp.makeConstraints{ make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.top.equalTo(safeAreaLayoutGuide).offset(0)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(230)
         }
         
         loveDayLabel.snp.makeConstraints { make in
@@ -188,7 +211,7 @@ class MainView: UIView{
         }
         
         recommendLabel.snp.makeConstraints { make in
-            make.top.equalTo(divider.snp.bottom).offset(2)
+            make.top.equalTo(divider.snp.bottom).offset(5)
             make.leading.equalTo(loveDayLabel)
             make.trailing.equalTo(loveDayLabel)
         }
@@ -197,7 +220,7 @@ class MainView: UIView{
             make.top.equalTo(recommendLabel.snp.bottom).offset(2)
             make.leading.equalTo(loveDayLabel)
             make.trailing.equalTo(loveDayLabel.snp.trailing)
-            make.bottom.equalTo(safeAreaLayoutGuide).inset(1)
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(10)
         }
         
     }

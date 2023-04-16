@@ -30,6 +30,7 @@
 		FAEDB1CC29EB9D5500805959 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */; };
 		FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CD29EBA94A00805959 /* SettingView.swift */; };
 		FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */; };
+		FAEDB1D429EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FAEDB1CD29EBA94A00805959 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveModel.swift; sourceTree = "<group>"; };
+		FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTheDayOfOurFIrstMeetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */,
+				FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */,
 				FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */,
 				FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */,
+				FAEDB1D429EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift in Sources */,
 				FAB2868729EA9F5A000FD933 /* UIImage+Extension.swift in Sources */,
 				FAB2866329EA8F0B000FD933 /* AppDelegate.swift in Sources */,
 				FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */,

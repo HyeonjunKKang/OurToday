@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import PhotosUI
 
 final class MainViewController: UIViewController{
     
@@ -29,9 +30,10 @@ final class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(viewModel.loveModel)
+        
         configureViewController()
         configureUI()
+        configureGuesture()
 
         checkFirstMeet()
         checkLoverBirth()
@@ -59,6 +61,65 @@ final class MainViewController: UIViewController{
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc func handleMyImageTapped(){
+        mainView.myPicker.delegate = self
+        self.present(mainView.myPicker, animated: true)
+    }
+    
+    @objc func handleLoverImageTapped(){
+        mainView.loverPicker.delegate = self
+        self.present(mainView.loverPicker, animated: true)
+    }
+    
+    @objc func handleMyNicknameTapped(){
+        print("DEBUG: 내 애칭 라벨 클릭")
+        let alertController = UIAlertController(title: "나",
+                                                message: "애칭을 입력해주세요",
+                                                preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "입력.."
+        }
+        
+        let okAction = UIAlertAction(title: "확인", style: .default){ _ in
+            if let textFields = alertController.textFields,
+               let textField = textFields.first,
+               let inputText = textField.text{
+                self.viewModel.setMyNickname(nickName: inputText)
+                self.binding()
+            }
+        }
+        
+        let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancleAction)
+        self.present(alertController, animated: true)
+    }
+    
+    @objc func handleLoverNicknameTapped(){
+        let alertController = UIAlertController(title: "상대방",
+                                                message: "애칭을 입력해주세요",
+                                                preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "입력.."
+        }
+        
+        let okAction = UIAlertAction(title: "확인", style: .default){ _ in
+            if let textFields = alertController.textFields,
+               let textField = textFields.first,
+               let inputText = textField.text{
+                self.viewModel.setLoverNickname(nickName: inputText)
+                self.binding()
+            }
+        }
+        
+        let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancleAction)
+        self.present(alertController, animated: true)
+    }
+    
     // MARK: - Helper
     
     func binding(){
@@ -81,16 +142,32 @@ final class MainViewController: UIViewController{
     func configureViewController(){
         navigationItem.titleView = UIImageView(image: logoImage)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Gear").resize(to: CGSize(width: 24, height: 24)), style: .done, target: self, action: #selector(didTapSetting))
-        
     }
     
     func configureUI(){
         navigationController?.navigationBar.isTranslucent = false
     }
     
+    func configureGuesture(){
+        let myImageGesture = UITapGestureRecognizer(target: self, action: #selector(handleMyImageTapped))
+        mainView.myImageView.addGestureRecognizer(myImageGesture)
+        mainView.myImageView.isUserInteractionEnabled = true
+        
+        let loverImageGesture = UITapGestureRecognizer(target: self, action: #selector(handleLoverImageTapped))
+        mainView.loverImageView.addGestureRecognizer(loverImageGesture)
+        mainView.loverImageView.isUserInteractionEnabled = true
+        
+        let myNicknameGuesture = UITapGestureRecognizer(target: self, action: #selector(handleMyNicknameTapped))
+        mainView.myNicknameLabel.addGestureRecognizer(myNicknameGuesture)
+        mainView.myNicknameLabel.isUserInteractionEnabled = true
+        
+        let loverNicknameGuesture = UITapGestureRecognizer(target: self, action: #selector(handleLoverNicknameTapped))
+        mainView.loverNicknameLabel.addGestureRecognizer(loverNicknameGuesture)
+        mainView.loverNicknameLabel.isUserInteractionEnabled = true
+    }
+    
     func checkFirstMeet(){
         if viewModel.loveModel.firstLoveDay == nil{
-            
             let controller = PickTheDayOfOurFirstMeetViewController()
             controller.modalPresentationStyle = .fullScreen
             controller.delegate = self
@@ -100,7 +177,6 @@ final class MainViewController: UIViewController{
     
     func checkLoverBirth(){
         if viewModel.loveModel.loverBirthDay == nil{
-            
             let controller = PickBirthDayViewController()
             controller.modalPresentationStyle = .fullScreen
             controller.delegate = self
@@ -150,12 +226,38 @@ extension MainViewController: PickDateDelegate{
     }
 }
 
-// MARK: -
+// MARK: - ImagePickerDelegate
 
 extension MainViewController: ImagePickerDelegate{
     func imagePick(_ controller: UIViewController, image: UIImage) {
-        viewModel.mainImage = image
+        viewModel.setMainImage(image: image)
         binding()
+    }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension MainViewController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self){
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    print("DEBUG: \(picker.view.tag)")
+                    if picker.view.tag == 1{
+                        self.viewModel.setMyImage(image: image as? UIImage ?? UIImage())
+                    }
+                    if picker.view.tag == 2{
+                        self.viewModel.setLoverImage(image: image as? UIImage ?? UIImage())
+                    }
+                    self.binding()
+                }
+            }
+        }
     }
 }
 
