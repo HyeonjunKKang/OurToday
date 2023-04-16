@@ -6,24 +6,82 @@
 //
 
 import UIKit
+import PhotosUI
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    let settingView = SettingView()
+    
+    weak var delegate: PickDateDelegate?
+    weak var imagedelegate: ImagePickerDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // MARK: - Lifecycle
+    
+    override func loadView() {
+        self.view = settingView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureButton()
     }
-    */
+    
+    // MARK: - Actions
+    
+    @objc func presentPickTheDayOfOurFirstMeetViewController(){
+        let controller = PickTheDayOfOurFirstMeetViewController()
+        controller.delegate = self.delegate
+        present(controller, animated: true)
+    }
+    
+    @objc func presentPickBirthDayViewController(){
+        let controller = PickBirthDayViewController()
+        controller.delegate = self.delegate
+        present(controller, animated: true)
+    }
+    
+    @objc func handleImagePicker(){
+        print("DEBUG: show imagepicker")
+        
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .any(of: [.images])
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        self.present(picker, animated: true)
+    }
+    
+    // MARK: - Helpers
+    
+    func configureController(){
+        navigationItem.leftBarButtonItem?.tintColor = PINKCOLOR
+    }
+    
+    func configureButton(){
+        settingView.firstMeetSettingButton.addTarget(self, action: #selector(presentPickTheDayOfOurFirstMeetViewController), for: .touchUpInside)
+        settingView.loverBirthdaySettingButton.addTarget(self, action: #selector(presentPickBirthDayViewController), for: .touchUpInside)
+        settingView.mainImageSettingButton.addTarget(self, action: #selector(handleImagePicker), for: .touchUpInside)
+    }
 
+}
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension SettingViewController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self){
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                self.imagedelegate?.imagePick(self, image: image as? UIImage ?? UIImage())
+            }
+        }
+    }
 }
