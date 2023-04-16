@@ -17,6 +17,8 @@ final class MainViewModel{
         }
     }
     
+    var dateModel: [DateModel] = []
+    
     var firstLoveDay: String?{
         get{
             guard let day = loveModel.firstLoveDay else { return  "0000년 00월 00일부터..."}
@@ -35,7 +37,7 @@ final class MainViewModel{
         let start = calendar.startOfDay(for: loveDay)
         let end = calendar.startOfDay(for: today)
         let components = calendar.dateComponents([.day], from: start, to: end)
-        return "우리 사랑한지 \(components.day ?? 0)일"
+        return "시작한지 \(components.day ?? 0)일"
     }
     
     var loverBirthDay: Date?{
@@ -118,5 +120,12 @@ final class MainViewModel{
     
     func setLoverNickname(nickName: String){
         loveModel.loverNickname = nickName
+    }
+    
+    func fetchData(completion: @escaping () -> ()){
+        FireStoreManager.share.fetchRecommend { [weak self] models in
+            self?.dateModel = models
+            completion()
+        }
     }
 }
