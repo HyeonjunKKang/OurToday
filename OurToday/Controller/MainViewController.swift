@@ -16,11 +16,7 @@ final class MainViewController: UIViewController{
     let logoImage = #imageLiteral(resourceName: "mainLogo")
     let mainView = MainView()
     
-    var viewModel: MainViewModel{
-        didSet{
-            binding()
-        }
-    }
+    private var viewModel: MainViewModel
     
     // MARK: - LifeCycle
     
@@ -34,7 +30,10 @@ final class MainViewController: UIViewController{
         configureViewController()
         configureUI()
         configureGuesture()
-
+        configureCollectionView()
+        
+        fetchRecommendData()
+        
         checkFirstMeet()
         checkLoverBirth()
         
@@ -123,19 +122,16 @@ final class MainViewController: UIViewController{
     // MARK: - Helper
     
     func binding(){
-        print("DEBUG: ViewModelBinding")
-        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.mainView.firstDayLabel.text = self.viewModel.firstLoveDay
+            self.mainView.firstDayLabel.text = self.viewModel.firstLoveDaytoString
             self.mainView.loveDayLabel.text = self.viewModel.howMany
-            self.mainView.myNicknameLabel.text = self.viewModel.loveModel.myNickname
-            self.mainView.loverNicknameLabel.text = self.viewModel.loveModel.loverNickname
+            self.mainView.myNicknameLabel.text = self.viewModel.myNickName
+            self.mainView.loverNicknameLabel.text = self.viewModel.loverNickName
             self.mainView.mainImageView.image = self.viewModel.mainImage
             self.mainView.myImageView.image = self.viewModel.myImage
             self.mainView.loverImageView.image = self.viewModel.loverImage
             self.mainView.myNicknameLabel.text = self.viewModel.myNickName
-            self.mainView.loverNicknameLabel.text = self.viewModel.loverNickName
         }
     }
     
@@ -146,6 +142,12 @@ final class MainViewController: UIViewController{
     
     func configureUI(){
         navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    func configureCollectionView(){
+        mainView.recommendCollectionView.dataSource = self
+        mainView.recommendCollectionView.delegate = self
+        mainView.recommendCollectionView.register(RecommendDateCell.self, forCellWithReuseIdentifier: CELL_RECOMMEND)
     }
     
     func configureGuesture(){
@@ -166,8 +168,14 @@ final class MainViewController: UIViewController{
         mainView.loverNicknameLabel.isUserInteractionEnabled = true
     }
     
+    func fetchRecommendData(){
+        viewModel.fetchData { [weak self] in
+            self?.mainView.recommendCollectionView.reloadData()
+        }
+    }
+    
     func checkFirstMeet(){
-        if viewModel.loveModel.firstLoveDay == nil{
+        if viewModel.firstLoveDay == nil{
             let controller = PickTheDayOfOurFirstMeetViewController()
             controller.modalPresentationStyle = .fullScreen
             controller.delegate = self
@@ -176,7 +184,7 @@ final class MainViewController: UIViewController{
     }
     
     func checkLoverBirth(){
-        if viewModel.loveModel.loverBirthDay == nil{
+        if viewModel.loverBirthDay == nil{
             let controller = PickBirthDayViewController()
             controller.modalPresentationStyle = .fullScreen
             controller.delegate = self
@@ -191,18 +199,25 @@ extension MainViewController: PickDateDelegate{
     
     func dayDidComplete(controller: UIViewController) {
         
-        binding()
-        
         switch controller{
         case let vc as PickTheDayOfOurFirstMeetViewController:
             print("DEBUG: It's Completed select PickTheDayOfOurFIrstMeetViewController")
+            viewModel.saveLoveModel {
+                self.binding()
+            }
             vc.dismiss(animated: true) {
                 self.checkLoverBirth()
             }
             
         case let vc as PickBirthDayViewController:
             print("DEBUG: It's Completed select PickBirthDayViewController")
-            vc.dismiss(animated: true)
+            
+            viewModel.saveLoveModel {
+                self.binding()
+            }
+            vc.dismiss(animated: true) {
+                self.binding()
+            }
             
         default:
             break
@@ -214,11 +229,11 @@ extension MainViewController: PickDateDelegate{
         switch controller{
         case let _ as PickTheDayOfOurFirstMeetViewController:
             print("DEBUG: It's PickTheDayOfOurFIrstMeetViewController")
-            viewModel.loveModel.firstLoveDay = selecteDay
+            viewModel.setFirstLoveDay(date: selecteDay)
 
         case let _ as PickBirthDayViewController:
             print("DEBUG: It's PickBirthDayViewController")
-            viewModel.loveModel.loverBirthDay = selecteDay
+            viewModel.setLoverBirthDay(date: selecteDay)
             
         default:
             break
@@ -237,27 +252,65 @@ extension MainViewController: ImagePickerDelegate{
 
 // MARK: - PHPickerViewControllerDelegate
 
-extension MainViewController: PHPickerViewControllerDelegate{
+extension MainViewController: PHPickerViewControllerDelegate {
+    // 이미지가 완전히 load되고 dismiss해야 메모리 릭을 방지할 수 있다.
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-        
         let itemProvider = results.first?.itemProvider
         
-        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self){
-            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
-                guard let self = self else { return }
+        if let provider = itemProvider, provider.canLoadObject(ofClass: UIImage.self) {
+            provider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
+                guard let self = self, let image = object as? UIImage else {
+                    picker.dismiss(animated: true)
+                    return
+                }
                 DispatchQueue.main.async {
-                    print("DEBUG: \(picker.view.tag)")
-                    if picker.view.tag == 1{
-                        self.viewModel.setMyImage(image: image as? UIImage ?? UIImage())
+                    if picker.view.tag == 1 {
+                        self.viewModel.setMyImage(image: image)
                     }
-                    if picker.view.tag == 2{
-                        self.viewModel.setLoverImage(image: image as? UIImage ?? UIImage())
+                    if picker.view.tag == 2 {
+                        self.viewModel.setLoverImage(image: image)
                     }
                     self.binding()
+                    picker.dismiss(animated: true)
                 }
             }
+        } else {
+            picker.dismiss(animated: true)
         }
     }
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+extension MainViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.dateModelCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_RECOMMEND, for: indexPath) as? RecommendDateCell else { return UICollectionViewCell() }
+        cell.viewModel = RecommendDateViewModel(date: viewModel.dateModel(index: indexPath.row))
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let controller = DetailDeteInfoViewController(viewModel: DetailDateInfoViewModel(dateModel: viewModel.dateModel(index: indexPath.row)))
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension MainViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellHeight = collectionView.bounds.height
+        
+        return CGSize(width: cellHeight, height: cellHeight)
+    }
+    
+    
 }
 
