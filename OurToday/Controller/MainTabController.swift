@@ -40,7 +40,7 @@ final class MainTabController: UITabBarController{
        
         let main = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Home"), selectedImage: #imageLiteral(resourceName: "selected-Home"), rootViewController: MainViewController(viewModel: MainViewModel(loveModel: loveModel)))
         
-        let Anniversary = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Bulleted List"), selectedImage: #imageLiteral(resourceName: "selected-Bulleted List"), rootViewController: AnniversaryViewController())
+        let Anniversary = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Bulleted List"), selectedImage: #imageLiteral(resourceName: "selected-Bulleted List"), rootViewController: AnniversaryViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         viewControllers = [main, Anniversary]
     }
