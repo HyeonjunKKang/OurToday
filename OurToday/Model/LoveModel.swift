@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import RealmSwift
 
-struct LoveModel: Codable{
-    var firstLoveDay: Date?
-    var loverBirthDay: Date?
-    var mainImage: Data?
-    var myNickname: String? = "애칭"
-    var myImage: Data?
-    var loverNickname: String? = "애칭"
-    var loverImage: Data?
+final class LoveModel: Object{
+    @objc dynamic var id = ""
+    @objc dynamic var firstLoveDay: Date?
+    @objc dynamic var loverBirthDay: Date?
+    @objc dynamic var mainImage: Data?
+    @objc dynamic var myNickname: String? = "애칭"
+    @objc dynamic var myImage: Data?
+    @objc dynamic var loverNickname: String? = "애칭"
+    @objc dynamic var loverImage: Data?
+    
+    static override func primaryKey() -> String? {
+        return "id"
+    }
 }
