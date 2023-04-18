@@ -12,7 +12,7 @@ final class SettingViewController: UIViewController {
     
     // MARK: - Properties
     
-    let settingView = SettingView()
+    private let settingView = SettingView()
     
     weak var delegate: PickDateDelegate?
     weak var imagedelegate: ImagePickerDelegate?
@@ -27,6 +27,7 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         configureButton()
+        configureController()
     }
     
     // MARK: - Actions
@@ -56,13 +57,21 @@ final class SettingViewController: UIViewController {
         self.present(picker, animated: true)
     }
     
-    // MARK: - Helpers
-    
-    func configureController(){
-        navigationItem.leftBarButtonItem?.tintColor = PINKCOLOR
+    @objc func handleBackButtonTapped(){
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func configureButton(){
+    // MARK: - Helpers
+    
+    private func configureController(){
+        let backButton = UIButton(type: .system)
+        backButton.setImage(#imageLiteral(resourceName: "Left Arrow").resize(to: CGSize(width: 30, height: 30)), for: .normal)
+        backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    private func configureButton(){
         settingView.firstMeetSettingButton.addTarget(self, action: #selector(presentPickTheDayOfOurFirstMeetViewController), for: .touchUpInside)
         settingView.loverBirthdaySettingButton.addTarget(self, action: #selector(presentPickBirthDayViewController), for: .touchUpInside)
         settingView.mainImageSettingButton.addTarget(self, action: #selector(handleImagePicker), for: .touchUpInside)
@@ -74,13 +83,20 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
         
         let itemProvider = results.first?.itemProvider
         
-        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self){
-            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                self.imagedelegate?.imagePick(self, image: image as? UIImage ?? UIImage())
+        DispatchQueue.global().async {
+            if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self){
+                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    self.imagedelegate?.imagePick(self, image: image as? UIImage ?? UIImage())
+                    DispatchQueue.main.async {
+                        picker.dismiss(animated: true)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                picker.dismiss(animated: true)
             }
         }
     }
