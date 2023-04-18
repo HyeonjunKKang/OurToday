@@ -5,7 +5,7 @@
 //  Created by 강현준 on 2023/04/16.
 //
 
-import Foundation
+import UIKit
 
 struct RecommendDateViewModel{
     
@@ -13,8 +13,8 @@ struct RecommendDateViewModel{
     
     private let date: DateModel
     
-    var imageUrl: URL?{
-        return URL(string: date.imageurl)
+    var imagerUrl: String{
+        return date.imageurl
     }
     
     var description: String{
@@ -27,6 +27,26 @@ struct RecommendDateViewModel{
     
     var name: String{
         return date.name
+    }
+    
+    func loadImage(url string: String, completion: @escaping(UIImage) -> ()){
+        if let url = URL(string: string){
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+               
+                if let error = error{
+                    print("DEBUG: Error downloading image \(error.localizedDescription)")
+                    
+                    return
+                }
+                
+                guard let data = data, let image = UIImage(data: data) else {
+                    print("DEBUG: Error converting data to image")
+                    
+                    return
+                }
+                completion(image)
+            }.resume()
+        }
     }
     
     // MARK: - Initializer
