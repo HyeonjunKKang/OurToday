@@ -15,7 +15,7 @@ final class PickTheDayOfOurFirstMeetViewController: UIViewController{
     
     weak var delegate: PickDateDelegate?
     
-    let pickTheDayView = IncludeCalenderView(text: "언제부터 사랑하셨나요?")
+    private let pickTheDayView = IncludeCalenderView(text: "언제부터 사랑하셨나요?")
     
     // MARK: - LifeCycle
     
@@ -37,7 +37,7 @@ final class PickTheDayOfOurFirstMeetViewController: UIViewController{
     
     // MARK: - Helper
     
-    func configure(){
+    private func configure(){
         pickTheDayView.fsCalendar.delegate = self
         pickTheDayView.nextButton.addTarget(self, action: #selector(checkNext), for: .touchUpInside)
     }
