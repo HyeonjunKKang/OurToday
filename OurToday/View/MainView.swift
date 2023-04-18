@@ -22,7 +22,6 @@ class MainView: UIView{
     
     let loveDayLabel: UILabel = {
         let label = UILabel()
-        label.text = "우리 사랑한지 \(1)일"
         label.textColor = UIColor(red: 149/255, green: 126/255, blue: 126/255, alpha: 100)
         label.font = .systemFont(ofSize: 24)
         
@@ -90,8 +89,9 @@ class MainView: UIView{
     }()
     
     let recommendCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .lightGray
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
         
         return cv
     }()
@@ -224,6 +224,4 @@ class MainView: UIView{
         }
         
     }
-    
-    
 }
