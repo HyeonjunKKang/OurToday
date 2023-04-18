@@ -48,7 +48,14 @@ final class PickBirthDayViewController: UIViewController{
 
 extension PickBirthDayViewController: FSCalendarDelegate{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let selectedDate = date + 86400
-        delegate?.pickDay(controller: self, selecteDay: selectedDate)
+        let selectedDate = date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let localeDate = dateFormatter.string(from: selectedDate)
+        let newDate = dateFormatter.date(from: localeDate)
+        
+        delegate?.pickDay(controller: self, selecteDay: newDate ?? selectedDate)
     }
 }
