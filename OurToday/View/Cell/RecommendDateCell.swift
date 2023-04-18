@@ -21,7 +21,6 @@ class RecommendDateCell: UICollectionViewCell{
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "sampleImage")
         iv.contentMode = .scaleToFill
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 10
@@ -41,6 +40,10 @@ class RecommendDateCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     // MARK: - Helper
     
     func configureUI(){
@@ -54,6 +57,12 @@ class RecommendDateCell: UICollectionViewCell{
     }
     
     func binding(){
-        imageView.sd_setImage(with: viewModel?.imageUrl)
+        guard let url = viewModel?.imagerUrl else { return }
+        viewModel?.loadImage(url: url, completion: { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        })
     }
 }
