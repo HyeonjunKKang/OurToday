@@ -48,6 +48,14 @@ final class PickTheDayOfOurFirstMeetViewController: UIViewController{
 extension PickTheDayOfOurFirstMeetViewController: FSCalendarDelegate{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let selectedDate = date
-        delegate?.pickDay(controller: self, selecteDay: selectedDate)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let localeDate = dateFormatter.string(from: selectedDate)
+        
+        let newDate = dateFormatter.date(from: localeDate)
+        
+        delegate?.pickDay(controller: self, selecteDay: newDate ?? selectedDate)
     }
 }
