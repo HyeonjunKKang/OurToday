@@ -6,24 +6,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class MainViewModel{
     
     // MARK: - Properties
     
-    var loveModel: LoveModel{
-        didSet{
-            UserDefaultsManager.shared.writeUserDefaults(loveModel: loveModel)
-        }
-    }
+    let realm = try! Realm()
     
-    var dateModel: [DateModel] = []
+    private var loveModel: LoveModel
     
-    var firstLoveDay: String?{
+    private var dateModel: [DateModel] = []
+    
+    var firstLoveDaytoString: String?{
         get{
             guard let day = loveModel.firstLoveDay else { return  "0000년 00월 00일부터..."}
             
             let formatter = DateFormatter()
+            formatter.timeZone = TimeZone.current
             formatter.dateFormat = "yyyy년 MM월 dd일부터.."
             return formatter.string(from: day)
         }
@@ -31,22 +31,21 @@ final class MainViewModel{
     
     var howMany: String?{
         let calendar = Calendar.current
-        guard let loveDay = loveModel.firstLoveDay else { return "우리 사랑한지 0일" }
+        guard let loveDay = loveModel.firstLoveDay else { return "D-day +0일" }
         
         let today = Date()
         let start = calendar.startOfDay(for: loveDay)
         let end = calendar.startOfDay(for: today)
         let components = calendar.dateComponents([.day], from: start, to: end)
-        return "시작한지 \(components.day ?? 0)일"
+        return "D-day +\(components.day ?? 0)일"
+    }
+    
+    var firstLoveDay: Date?{
+        return loveModel.firstLoveDay
     }
     
     var loverBirthDay: Date?{
-        get{
-            return loveModel.loverBirthDay
-        }
-        set{
-            loveModel.loverBirthDay = newValue
-        }
+        return loveModel.loverBirthDay
     }
     
     var mainImage: UIImage{
@@ -55,11 +54,6 @@ final class MainViewModel{
                 return image
             } else {
                 return #imageLiteral(resourceName: "mainImage")
-            }
-        }
-        set{
-            if let imageData = newValue.pngData(){
-                loveModel.mainImage = imageData
             }
         }
     }
@@ -88,6 +82,10 @@ final class MainViewModel{
         return loveModel.loverNickname
     }
     
+    var dateModelCount: Int{
+        return dateModel.count
+    }
+    
     // MARK: - Initializer
     
     init(loveModel: LoveModel) {
@@ -96,35 +94,70 @@ final class MainViewModel{
     
     // MARK: - Helpers
     
+    func dateModel(index: Int) -> DateModel{
+        return dateModel[index]
+    }
+    
     func setMyImage(image: UIImage){
         if let imageData = image.pngData(){
-            loveModel.myImage = imageData
+            try! realm.write{
+                loveModel.myImage = imageData
+            }
         }
     }
     
     func setMainImage(image: UIImage){
-        if let imageData = image.pngData(){
-            loveModel.mainImage = imageData
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = image.pngData(){
+                try! self?.realm.write{
+                    self?.loveModel.mainImage = imageData
+                }
+            }
         }
+        
     }
     
     func setLoverImage(image: UIImage){
         if let imageData = image.pngData(){
-            loveModel.loverImage = imageData
+            try! realm.write{
+                loveModel.loverImage = imageData
+            }
+        }
+    }
+    
+    func setFirstLoveDay(date: Date){
+        try! realm.write{
+            loveModel.firstLoveDay = date
+        }
+    }
+    
+    func setLoverBirthDay(date: Date){
+        try! realm.write{
+            loveModel.loverBirthDay = date
         }
     }
     
     func setMyNickname(nickName: String){
-        loveModel.myNickname = nickName
+        try! realm.write{
+            loveModel.myNickname = nickName
+        }
     }
     
     func setLoverNickname(nickName: String){
-        loveModel.loverNickname = nickName
+        try! realm.write{
+            loveModel.loverNickname = nickName
+        }
     }
     
     func fetchData(completion: @escaping () -> ()){
         FireStoreManager.share.fetchRecommend { [weak self] models in
-            self?.dateModel = models
+            self?.dateModel = models.shuffled()
+            completion()
+        }
+    }
+    
+    func saveLoveModel(completion: @escaping () -> ()){
+        RealmManager.shared.update(loveData: loveModel){
             completion()
         }
     }
