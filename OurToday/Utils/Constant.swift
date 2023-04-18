@@ -16,6 +16,8 @@ let USERDEFAULT = "LoveModel"
 
 let CELL_RECOMMEND = "RecommendDateCell"
 
+let CELL_ANNIVERSARY = "AnniversaryCell"
+
 let COLLECTION_RECOMMEND = Firestore.firestore().collection("recommenddate")
 
 let ERROR_IMAGE = #imageLiteral(resourceName: "에러이미지")
