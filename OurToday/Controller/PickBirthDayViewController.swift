@@ -7,14 +7,13 @@
 
 import UIKit
 import SnapKit
-
 import FSCalendar
 
 final class PickBirthDayViewController: UIViewController{
     
     // MARK: - Properties
     
-    let pickTheBirthDayView = IncludeCalenderView(text: "그분의 생일이 언제인가요?")
+    private let pickTheBirthDayView = IncludeCalenderView(text: "그분의 생일이 언제인가요?")
     
     weak var delegate: PickDateDelegate?
     
@@ -38,7 +37,7 @@ final class PickBirthDayViewController: UIViewController{
     
     // MARK: - Helper
     
-    func configure(){
+    private func configure(){
         pickTheBirthDayView.fsCalendar.delegate = self
         pickTheBirthDayView.nextButton.addTarget(self, action: #selector(checkNext), for: .touchUpInside)
     }
