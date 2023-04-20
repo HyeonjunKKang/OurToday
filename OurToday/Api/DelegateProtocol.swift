@@ -15,3 +15,7 @@ protocol PickDateDelegate: AnyObject{
 protocol ImagePickerDelegate: AnyObject{
     func imagePick(_ controller: UIViewController, image: UIImage)
 }
+
+protocol MainToAnniversaryDelegate: AnyObject{
+    func didChangeLoveDate(lovedata: LoveModel)
+}
