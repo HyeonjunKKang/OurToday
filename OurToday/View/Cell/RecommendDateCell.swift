@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import JGProgressHUD
 import SDWebImage
 
 class RecommendDateCell: UICollectionViewCell{
@@ -28,6 +29,8 @@ class RecommendDateCell: UICollectionViewCell{
         return iv
     }()
     
+    let hud = JGProgressHUD(style: .extraLight)
+    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -42,6 +45,7 @@ class RecommendDateCell: UICollectionViewCell{
     
     override func prepareForReuse() {
         imageView.image = nil
+        showLoader(true)
     }
     
     // MARK: - Helper
@@ -54,15 +58,24 @@ class RecommendDateCell: UICollectionViewCell{
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview().offset(5)
         }
+    
+        showLoader(true)
+        
     }
     
     func binding(){
-        guard let url = viewModel?.imagerUrl else { return }
-        viewModel?.loadImage(url: url, completion: { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-        })
+        guard let imageurl = viewModel?.imagerUrl, let url = URL(string: imageurl) else {
+            return }
+        imageView.sd_setImage(with: url) { [weak self] _, _, _, _ in
+            self?.showLoader(false)
+        }
+    }
+    
+    func showLoader(_ show: Bool){
+        if show {
+            hud.show(in: contentView)
+        } else {
+            hud.dismiss(animated: true)
+        }
     }
 }
