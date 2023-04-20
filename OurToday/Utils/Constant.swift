@@ -21,3 +21,5 @@ let CELL_ANNIVERSARY = "AnniversaryCell"
 let COLLECTION_RECOMMEND = Firestore.firestore().collection("recommenddate")
 
 let ERROR_IMAGE = #imageLiteral(resourceName: "에러이미지")
+
+let DAYOFTHRITYYEAR = 10950
