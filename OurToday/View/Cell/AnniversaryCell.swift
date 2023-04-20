@@ -11,6 +11,12 @@ final class AnniversaryCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    var viewModel: AnniversaryCellViewModel?{
+        didSet{
+            bind()
+        }
+    }
+    
     private let whatDayLabel: UILabel = {
         let label = UILabel()
         label.text = "10일"
@@ -49,12 +55,20 @@ final class AnniversaryCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         configureLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        viewModel = nil
+        
+        whatDayLabel.text = nil
+        dateLabel.text = nil
+        remainDateLabel.text = nil
     }
     
     // MARK: - Helpers
@@ -91,4 +105,12 @@ final class AnniversaryCell: UICollectionViewCell {
         }
     }
     
+    func bind(){
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.whatDayLabel.text = self.viewModel?.whatDay
+            self.dateLabel.text = self.viewModel?.date
+            self.remainDateLabel.text = self.viewModel?.remainDay
+        }
+    }
 }
