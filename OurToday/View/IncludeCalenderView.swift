@@ -19,7 +19,7 @@ final class IncludeCalenderView: UIView{
         let label = UILabel()
         label.text = text
         label.textColor = PINKCOLOR
-        label.font = .systemFont(ofSize: 32)
+        label.font = .systemFont(ofSize: 28)
         
         return label
     }()
@@ -40,17 +40,50 @@ final class IncludeCalenderView: UIView{
         return calendar
     }()
     
+    lazy var prevYearButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("< Year", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.setTitleColor(PINKCOLOR, for: .normal)
+        button.addTarget(self, action: #selector(didTapPrevYearButton), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var nextYearButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Year >", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.setTitleColor(PINKCOLOR, for: .normal)
+        button.addTarget(self, action: #selector(didTapNextYearButton), for: .touchUpInside)
+        
+        return button
+    }()
+    
     // MARK: - Lifecycle
     
     init(text: String){
         self.text = text
         super.init(frame: CGRect.zero)
-        
         configureUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Action
+    
+    @objc func didTapPrevYearButton(){
+        let currentYear = fsCalendar.currentPage
+        guard let oneYearAgo = Calendar.current.date(byAdding: .year, value: -1, to: currentYear) else { return }
+        fsCalendar.setCurrentPage(oneYearAgo, animated: true)
+    }
+    
+    @objc func didTapNextYearButton(){
+        let currentYear = fsCalendar.currentPage
+        guard let oneYearAfter = Calendar.current.date(byAdding: .year, value: 1, to: currentYear) else { return }
+        fsCalendar.setCurrentPage(oneYearAfter, animated: true)
     }
     
     // MARK: - Helper
@@ -62,7 +95,9 @@ final class IncludeCalenderView: UIView{
         [
             textLabel,
             fsCalendar,
-            nextButton
+            nextButton,
+            prevYearButton,
+            nextYearButton
             
         ].forEach({addSubview($0)})
         
@@ -82,7 +117,15 @@ final class IncludeCalenderView: UIView{
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-10)
         }
+        
+        prevYearButton.snp.makeConstraints { make in
+            make.top.equalTo(fsCalendar.snp.bottom).offset(5)
+            make.leading.equalToSuperview().offset(10)
+        }
+        
+        nextYearButton.snp.makeConstraints { make in
+            make.top.equalTo(fsCalendar.snp.bottom).offset(5)
+            make.trailing.equalToSuperview().offset(-10)
+        }
     }
-    
-    
 }
