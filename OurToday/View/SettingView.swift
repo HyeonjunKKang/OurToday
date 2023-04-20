@@ -62,6 +62,8 @@ class SettingView: UIView{
     // MARK: - Helper
     
     func configureUI(){
+        backgroundColor = .white
+        
         [
             stackView
         ].forEach({addSubview($0)})
