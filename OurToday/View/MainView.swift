@@ -15,7 +15,7 @@ class MainView: UIView{
     
     let mainImageView: UIImageView = {
         let imageview = UIImageView()
-        imageview.contentMode = .scaleToFill
+        imageview.contentMode = .scaleAspectFit
         
         return imageview
     }()
@@ -133,6 +133,7 @@ class MainView: UIView{
     // MARK: - Helper
     
     func configureUI(){
+        backgroundColor = .white
         
         [
             mainImageView,
