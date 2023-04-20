@@ -37,7 +37,7 @@ final class MainViewModel{
         let start = calendar.startOfDay(for: loveDay)
         let end = calendar.startOfDay(for: today)
         let components = calendar.dateComponents([.day], from: start, to: end)
-        return "D-day +\(components.day ?? 0)일"
+        return "D-day +\((components.day ?? 0) + 1) 일"
     }
     
     var firstLoveDay: Date?{
@@ -86,6 +86,10 @@ final class MainViewModel{
         return dateModel.count
     }
     
+    var getOnlyLoveModel: LoveModel{
+        return loveModel
+    }
+    
     // MARK: - Initializer
     
     init(loveModel: LoveModel) {
@@ -99,7 +103,7 @@ final class MainViewModel{
     }
     
     func setMyImage(image: UIImage){
-        if let imageData = image.pngData(){
+        if let imageData = image.jpegData(compressionQuality: 0.3){
             try! realm.write{
                 loveModel.myImage = imageData
             }
@@ -108,7 +112,7 @@ final class MainViewModel{
     
     func setMainImage(image: UIImage){
         DispatchQueue.main.async { [weak self] in
-            if let imageData = image.pngData(){
+            if let imageData = image.jpegData(compressionQuality: 0.3){
                 try! self?.realm.write{
                     self?.loveModel.mainImage = imageData
                 }
@@ -118,7 +122,7 @@ final class MainViewModel{
     }
     
     func setLoverImage(image: UIImage){
-        if let imageData = image.pngData(){
+        if let imageData = image.jpegData(compressionQuality: 0.3){
             try! realm.write{
                 loveModel.loverImage = imageData
             }
