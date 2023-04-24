@@ -12,15 +12,18 @@ import RealmSwift
 final class RealmManager {
     
     // Realm 데이터베이스 객체를 생성한다.
-    private let realm: Realm
+    private var realm: Realm{
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.OurToday")
+        let realmURL = container?.appendingPathComponent("default.realm")
+        let config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+        return try! Realm(configuration: config)
+    }
 
 // 싱글턴 객체로, RealmManager 클래스의 인스턴스를 반환한다.
     static let shared = RealmManager()
     
     
-    private init(){
-        realm = try! Realm()
-    }
+    private init(){}
 
 // PhotoData 객체의 배열
     var photoList = LoveModel()
