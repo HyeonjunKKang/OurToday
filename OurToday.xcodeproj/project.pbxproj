@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA085E2629EE245B001F5A3D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E2529EE245B001F5A3D /* RealmManager.swift */; };
+		FA085E2929EE24B2001F5A3D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA085E2829EE24B2001F5A3D /* RealmSwift */; };
+		FA085E2C29EE5981001F5A3D /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FA085E2B29EE5981001F5A3D /* JGProgressHUD */; };
+		FA085E3029EE76A9001F5A3D /* AnniversaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E2F29EE76A8001F5A3D /* AnniversaryCell.swift */; };
+		FA085E3229EE771D001F5A3D /* AnniversaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E3129EE771D001F5A3D /* AnniversaryModel.swift */; };
+		FA085E3429EE7D91001F5A3D /* AnniversaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E3329EE7D91001F5A3D /* AnniversaryViewModel.swift */; };
+		FA085E3629EEB585001F5A3D /* AnniversaryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E3529EEB585001F5A3D /* AnniversaryCellViewModel.swift */; };
+		FA085E3929EFDA5F001F5A3D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E3829EFDA5F001F5A3D /* UIViewController+Extension.swift */; };
+		FA085E3E29F0C6BF001F5A3D /* AnniversaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E3D29F0C6BF001F5A3D /* AnniversaryService.swift */; };
+		FA085E4629F0E21B001F5A3D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA085E4529F0E21A001F5A3D /* WidgetKit.framework */; };
+		FA085E4829F0E21B001F5A3D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA085E4729F0E21B001F5A3D /* SwiftUI.framework */; };
+		FA085E4B29F0E21B001F5A3D /* OurToday_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E4A29F0E21B001F5A3D /* OurToday_WidgetBundle.swift */; };
+		FA085E4D29F0E21B001F5A3D /* OurToday_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA085E4C29F0E21B001F5A3D /* OurToday_Widget.swift */; };
+		FA085E4F29F0E21D001F5A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA085E4E29F0E21D001F5A3D /* Assets.xcassets */; };
+		FA085E5329F0E21D001F5A3D /* OurToday_WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA085E4329F0E21A001F5A3D /* OurToday_WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA0BD28229F294D400363FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA0BD28129F294D400363FE4 /* GoogleService-Info.plist */; };
+		FA0BD28329F295DE00363FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA0BD28129F294D400363FE4 /* GoogleService-Info.plist */; };
+		FA0BD28629F2BFD600363FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2866B29EA8F0D000FD933 /* Assets.xcassets */; };
+		FA4F109729F4FBF40066A44B /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0BD28429F2BA7200363FE4 /* Image+Extension.swift */; };
+		FA69F59929ED07A1001D7274 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69F59829ED07A1001D7274 /* UIColor+extension.swift */; };
+		FA69F59B29ED2033001D7274 /* DetailDateInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69F59A29ED2033001D7274 /* DetailDateInfoViewModel.swift */; };
+		FA88FDC329F0E6CA00CCF226 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA88FDC229F0E6CA00CCF226 /* Realm */; };
+		FA88FDC529F0E6CA00CCF226 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA88FDC429F0E6CA00CCF226 /* RealmSwift */; };
+		FA88FDC829F0E85B00CCF226 /* WidgetRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88FDC629F0E6E600CCF226 /* WidgetRealmManager.swift */; };
+		FA88FDC929F0E89B00CCF226 /* WidgetRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88FDC629F0E6E600CCF226 /* WidgetRealmManager.swift */; };
+		FA88FDCA29F0E8BD00CCF226 /* LoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */; };
 		FAB2866329EA8F0B000FD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2866229EA8F0B000FD933 /* AppDelegate.swift */; };
 		FAB2866529EA8F0B000FD933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2866429EA8F0B000FD933 /* SceneDelegate.swift */; };
 		FAB2866C29EA8F0D000FD933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2866B29EA8F0D000FD933 /* Assets.xcassets */; };
@@ -31,9 +57,62 @@
 		FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CD29EBA94A00805959 /* SettingView.swift */; };
 		FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */; };
 		FAEDB1D429EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */; };
+		FAEDB1D629EC030B00805959 /* RecommendDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1D529EC030B00805959 /* RecommendDateCell.swift */; };
+		FAEDB1D929EC096000805959 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1D829EC096000805959 /* DateModel.swift */; };
+		FAEDB1DE29EC0E8600805959 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1DD29EC0E8600805959 /* FirebaseFirestore */; };
+		FAEDB1E029EC0E8600805959 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAEDB1DF29EC0E8600805959 /* FirebaseStorage */; };
+		FAEDB1E229EC170200805959 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1E129EC170200805959 /* FireStoreManager.swift */; };
+		FAEDB1E429EC1D1E00805959 /* RecommendDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1E329EC1D1E00805959 /* RecommendDateViewModel.swift */; };
+		FAEDB1E629ED05AA00805959 /* DetailDeteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1E529ED05AA00805959 /* DetailDeteInfoViewController.swift */; };
+		FAEDB1E829ED064900805959 /* DetailDateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDB1E729ED064900805959 /* DetailDateInfoView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FA085E5129F0E21D001F5A3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAB2865729EA8F0B000FD933 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA085E4229F0E21A001F5A3D;
+			remoteInfo = OurToday_WidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA085E5729F0E21D001F5A3D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FA085E5329F0E21D001F5A3D /* OurToday_WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FA085E2529EE245B001F5A3D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		FA085E2F29EE76A8001F5A3D /* AnniversaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCell.swift; sourceTree = "<group>"; };
+		FA085E3129EE771D001F5A3D /* AnniversaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryModel.swift; sourceTree = "<group>"; };
+		FA085E3329EE7D91001F5A3D /* AnniversaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryViewModel.swift; sourceTree = "<group>"; };
+		FA085E3529EEB585001F5A3D /* AnniversaryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCellViewModel.swift; sourceTree = "<group>"; };
+		FA085E3829EFDA5F001F5A3D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		FA085E3D29F0C6BF001F5A3D /* AnniversaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryService.swift; sourceTree = "<group>"; };
+		FA085E4329F0E21A001F5A3D /* OurToday_WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OurToday_WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA085E4529F0E21A001F5A3D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FA085E4729F0E21B001F5A3D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FA085E4A29F0E21B001F5A3D /* OurToday_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurToday_WidgetBundle.swift; sourceTree = "<group>"; };
+		FA085E4C29F0E21B001F5A3D /* OurToday_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurToday_Widget.swift; sourceTree = "<group>"; };
+		FA085E4E29F0E21D001F5A3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA085E5029F0E21D001F5A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0BD28129F294D400363FE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA0BD28429F2BA7200363FE4 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		FA69F59829ED07A1001D7274 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		FA69F59A29ED2033001D7274 /* DetailDateInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDateInfoViewModel.swift; sourceTree = "<group>"; };
+		FA88FDC629F0E6E600CCF226 /* WidgetRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRealmManager.swift; sourceTree = "<group>"; };
+		FA88FDCB29F0E97F00CCF226 /* OurToday_WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OurToday_WidgetExtension.entitlements; sourceTree = "<group>"; };
+		FA88FDCC29F0E99000CCF226 /* OurToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OurToday.entitlements; sourceTree = "<group>"; };
 		FAB2865F29EA8F0B000FD933 /* OurToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB2866229EA8F0B000FD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAB2866429EA8F0B000FD933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,27 +135,90 @@
 		FAEDB1CD29EBA94A00805959 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveModel.swift; sourceTree = "<group>"; };
 		FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTheDayOfOurFIrstMeetViewModel.swift; sourceTree = "<group>"; };
+		FAEDB1D529EC030B00805959 /* RecommendDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDateCell.swift; sourceTree = "<group>"; };
+		FAEDB1D829EC096000805959 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		FAEDB1E129EC170200805959 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
+		FAEDB1E329EC1D1E00805959 /* RecommendDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDateViewModel.swift; sourceTree = "<group>"; };
+		FAEDB1E529ED05AA00805959 /* DetailDeteInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDeteInfoViewController.swift; sourceTree = "<group>"; };
+		FAEDB1E729ED064900805959 /* DetailDateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDateInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA085E4029F0E21A001F5A3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA88FDC529F0E6CA00CCF226 /* RealmSwift in Frameworks */,
+				FA88FDC329F0E6CA00CCF226 /* Realm in Frameworks */,
+				FA085E4829F0E21B001F5A3D /* SwiftUI.framework in Frameworks */,
+				FA085E4629F0E21B001F5A3D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAB2865C29EA8F0B000FD933 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FAEDB1AF29EADB3200805959 /* SDWebImage in Frameworks */,
 				FAEDB1BF29EADF8100805959 /* FSCalendar in Frameworks */,
+				FA085E2929EE24B2001F5A3D /* RealmSwift in Frameworks */,
 				FAEDB1B129EADB3200805959 /* SDWebImageMapKit in Frameworks */,
+				FA085E2C29EE5981001F5A3D /* JGProgressHUD in Frameworks */,
+				FAEDB1DE29EC0E8600805959 /* FirebaseFirestore in Frameworks */,
 				FAEDB1AA29EAB50D00805959 /* SnapKit in Frameworks */,
+				FAEDB1E029EC0E8600805959 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA085E3729EEB888001F5A3D /* Anniversary */ = {
+			isa = PBXGroup;
+			children = (
+				FA085E3529EEB585001F5A3D /* AnniversaryCellViewModel.swift */,
+				FA085E3329EE7D91001F5A3D /* AnniversaryViewModel.swift */,
+			);
+			path = Anniversary;
+			sourceTree = "<group>";
+		};
+		FA085E3C29F0C6A6001F5A3D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA085E3D29F0C6BF001F5A3D /* AnniversaryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FA085E4429F0E21A001F5A3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA085E4529F0E21A001F5A3D /* WidgetKit.framework */,
+				FA085E4729F0E21B001F5A3D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA085E4929F0E21B001F5A3D /* OurToday_Widget */ = {
+			isa = PBXGroup;
+			children = (
+				FA085E4A29F0E21B001F5A3D /* OurToday_WidgetBundle.swift */,
+				FA085E4C29F0E21B001F5A3D /* OurToday_Widget.swift */,
+				FA88FDC629F0E6E600CCF226 /* WidgetRealmManager.swift */,
+				FA0BD28429F2BA7200363FE4 /* Image+Extension.swift */,
+				FA085E4E29F0E21D001F5A3D /* Assets.xcassets */,
+				FA085E5029F0E21D001F5A3D /* Info.plist */,
+			);
+			path = OurToday_Widget;
+			sourceTree = "<group>";
+		};
 		FAB2865629EA8F0B000FD933 = {
 			isa = PBXGroup;
 			children = (
+				FA88FDCB29F0E97F00CCF226 /* OurToday_WidgetExtension.entitlements */,
 				FAB2866129EA8F0B000FD933 /* OurToday */,
+				FA085E4929F0E21B001F5A3D /* OurToday_Widget */,
+				FA085E4429F0E21A001F5A3D /* Frameworks */,
 				FAB2866029EA8F0B000FD933 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB2865F29EA8F0B000FD933 /* OurToday.app */,
+				FA085E4329F0E21A001F5A3D /* OurToday_WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,17 +235,20 @@
 		FAB2866129EA8F0B000FD933 /* OurToday */ = {
 			isa = PBXGroup;
 			children = (
+				FA88FDCC29F0E99000CCF226 /* OurToday.entitlements */,
+				FAB2866229EA8F0B000FD933 /* AppDelegate.swift */,
+				FAB2866429EA8F0B000FD933 /* SceneDelegate.swift */,
 				FAB2867C29EA9953000FD933 /* Model */,
 				FAB2867B29EA994C000FD933 /* View */,
 				FAB2867A29EA9945000FD933 /* ViewModel */,
 				FAB2867629EA991C000FD933 /* Controller */,
+				FA085E3C29F0C6A6001F5A3D /* Service */,
 				FAEDB1C829EB8EAF00805959 /* Api */,
 				FAB2868529EA9F2E000FD933 /* Utils */,
-				FAB2866229EA8F0B000FD933 /* AppDelegate.swift */,
-				FAB2866429EA8F0B000FD933 /* SceneDelegate.swift */,
 				FAB2866B29EA8F0D000FD933 /* Assets.xcassets */,
 				FAB2866D29EA8F0D000FD933 /* LaunchScreen.storyboard */,
 				FAB2867029EA8F0D000FD933 /* Info.plist */,
+				FA0BD28129F294D400363FE4 /* GoogleService-Info.plist */,
 			);
 			path = OurToday;
 			sourceTree = "<group>";
@@ -112,10 +258,11 @@
 			children = (
 				FAB2867F29EA998D000FD933 /* MainTabController.swift */,
 				FAB2867D29EA9969000FD933 /* MainViewController.swift */,
+				FAB2868329EA9A6D000FD933 /* SettingViewController.swift */,
 				FAB2868129EA9A5D000FD933 /* AnniversaryViewController.swift */,
+				FAEDB1E529ED05AA00805959 /* DetailDeteInfoViewController.swift */,
 				FAEDB1B729EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift */,
 				FAEDB1B929EADC3900805959 /* PickBirthDayViewController.swift */,
-				FAB2868329EA9A6D000FD933 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,6 +272,9 @@
 			children = (
 				FAEDB1CB29EB9D5500805959 /* MainViewModel.swift */,
 				FAEDB1D329EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift */,
+				FAEDB1E329EC1D1E00805959 /* RecommendDateViewModel.swift */,
+				FA69F59A29ED2033001D7274 /* DetailDateInfoViewModel.swift */,
+				FA085E3729EEB888001F5A3D /* Anniversary */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -135,6 +285,8 @@
 				FAEDB1A629EAB3FE00805959 /* MainView.swift */,
 				FAEDB1BB29EADD8400805959 /* IncludeCalenderView.swift */,
 				FAEDB1CD29EBA94A00805959 /* SettingView.swift */,
+				FAEDB1E729ED064900805959 /* DetailDateInfoView.swift */,
+				FAEDB1D729EC03B800805959 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				FAEDB1CF29EBC3CF00805959 /* LoveModel.swift */,
+				FAEDB1D829EC096000805959 /* DateModel.swift */,
+				FA085E3129EE771D001F5A3D /* AnniversaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				FAB2868629EA9F5A000FD933 /* UIImage+Extension.swift */,
+				FA69F59829ED07A1001D7274 /* UIColor+extension.swift */,
+				FA085E3829EFDA5F001F5A3D /* UIViewController+Extension.swift */,
 				FAEDB1AB29EAD3C400805959 /* Constant.swift */,
 			);
 			path = Utils;
@@ -161,13 +317,45 @@
 			children = (
 				FAEDB1C929EB971A00805959 /* DelegateProtocol.swift */,
 				FAEDB1C629EB10A900805959 /* UserDefaultsManager.swift */,
+				FAEDB1E129EC170200805959 /* FireStoreManager.swift */,
+				FA085E2529EE245B001F5A3D /* RealmManager.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		FAEDB1D729EC03B800805959 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDB1D529EC030B00805959 /* RecommendDateCell.swift */,
+				FA085E2F29EE76A8001F5A3D /* AnniversaryCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA085E4229F0E21A001F5A3D /* OurToday_WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA085E5429F0E21D001F5A3D /* Build configuration list for PBXNativeTarget "OurToday_WidgetExtension" */;
+			buildPhases = (
+				FA085E3F29F0E21A001F5A3D /* Sources */,
+				FA085E4029F0E21A001F5A3D /* Frameworks */,
+				FA085E4129F0E21A001F5A3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OurToday_WidgetExtension;
+			packageProductDependencies = (
+				FA88FDC229F0E6CA00CCF226 /* Realm */,
+				FA88FDC429F0E6CA00CCF226 /* RealmSwift */,
+			);
+			productName = OurToday_WidgetExtension;
+			productReference = FA085E4329F0E21A001F5A3D /* OurToday_WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FAB2865E29EA8F0B000FD933 /* OurToday */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAB2867329EA8F0D000FD933 /* Build configuration list for PBXNativeTarget "OurToday" */;
@@ -175,10 +363,12 @@
 				FAB2865B29EA8F0B000FD933 /* Sources */,
 				FAB2865C29EA8F0B000FD933 /* Frameworks */,
 				FAB2865D29EA8F0B000FD933 /* Resources */,
+				FA085E5729F0E21D001F5A3D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FA085E5229F0E21D001F5A3D /* PBXTargetDependency */,
 			);
 			name = OurToday;
 			packageProductDependencies = (
@@ -186,6 +376,10 @@
 				FAEDB1AE29EADB3200805959 /* SDWebImage */,
 				FAEDB1B029EADB3200805959 /* SDWebImageMapKit */,
 				FAEDB1BE29EADF8100805959 /* FSCalendar */,
+				FAEDB1DD29EC0E8600805959 /* FirebaseFirestore */,
+				FAEDB1DF29EC0E8600805959 /* FirebaseStorage */,
+				FA085E2829EE24B2001F5A3D /* RealmSwift */,
+				FA085E2B29EE5981001F5A3D /* JGProgressHUD */,
 			);
 			productName = OurToday;
 			productReference = FAB2865F29EA8F0B000FD933 /* OurToday.app */;
@@ -200,7 +394,11 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
+					FA085E4229F0E21A001F5A3D = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					FAB2865E29EA8F0B000FD933 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -219,22 +417,37 @@
 				FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FAEDB1AD29EADB3100805959 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				FAEDB1BD29EADF8100805959 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				FAEDB1DC29EC0E8600805959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA085E2729EE24B2001F5A3D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				FA085E2A29EE5981001F5A3D /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = FAB2866029EA8F0B000FD933 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				FAB2865E29EA8F0B000FD933 /* OurToday */,
+				FA085E4229F0E21A001F5A3D /* OurToday_WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA085E4129F0E21A001F5A3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0BD28329F295DE00363FE4 /* GoogleService-Info.plist in Resources */,
+				FA0BD28629F2BFD600363FE4 /* Assets.xcassets in Resources */,
+				FA085E4F29F0E21D001F5A3D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAB2865D29EA8F0B000FD933 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FAB2866F29EA8F0D000FD933 /* LaunchScreen.storyboard in Resources */,
+				FA0BD28229F294D400363FE4 /* GoogleService-Info.plist in Resources */,
 				FAB2866C29EA8F0D000FD933 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,32 +455,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA085E3F29F0E21A001F5A3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA4F109729F4FBF40066A44B /* Image+Extension.swift in Sources */,
+				FA085E4D29F0E21B001F5A3D /* OurToday_Widget.swift in Sources */,
+				FA88FDCA29F0E8BD00CCF226 /* LoveModel.swift in Sources */,
+				FA085E4B29F0E21B001F5A3D /* OurToday_WidgetBundle.swift in Sources */,
+				FA88FDC829F0E85B00CCF226 /* WidgetRealmManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAB2865B29EA8F0B000FD933 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA085E3229EE771D001F5A3D /* AnniversaryModel.swift in Sources */,
 				FAB2867E29EA9969000FD933 /* MainViewController.swift in Sources */,
+				FA085E3E29F0C6BF001F5A3D /* AnniversaryService.swift in Sources */,
 				FAEDB1CA29EB971A00805959 /* DelegateProtocol.swift in Sources */,
 				FAEDB1A729EAB3FE00805959 /* MainView.swift in Sources */,
 				FAEDB1CE29EBA94A00805959 /* SettingView.swift in Sources */,
 				FAEDB1BA29EADC3900805959 /* PickBirthDayViewController.swift in Sources */,
+				FA88FDC929F0E89B00CCF226 /* WidgetRealmManager.swift in Sources */,
+				FAEDB1D929EC096000805959 /* DateModel.swift in Sources */,
+				FAEDB1E629ED05AA00805959 /* DetailDeteInfoViewController.swift in Sources */,
 				FAEDB1AC29EAD3C400805959 /* Constant.swift in Sources */,
 				FAEDB1D429EBFE7400805959 /* PickTheDayOfOurFIrstMeetViewModel.swift in Sources */,
 				FAB2868729EA9F5A000FD933 /* UIImage+Extension.swift in Sources */,
 				FAB2866329EA8F0B000FD933 /* AppDelegate.swift in Sources */,
 				FAEDB1D029EBC3D000805959 /* LoveModel.swift in Sources */,
+				FA69F59929ED07A1001D7274 /* UIColor+extension.swift in Sources */,
+				FA69F59B29ED2033001D7274 /* DetailDateInfoViewModel.swift in Sources */,
+				FA085E2629EE245B001F5A3D /* RealmManager.swift in Sources */,
+				FA085E3929EFDA5F001F5A3D /* UIViewController+Extension.swift in Sources */,
+				FAEDB1E829ED064900805959 /* DetailDateInfoView.swift in Sources */,
 				FAEDB1CC29EB9D5500805959 /* MainViewModel.swift in Sources */,
 				FAB2868029EA998D000FD933 /* MainTabController.swift in Sources */,
 				FAB2866529EA8F0B000FD933 /* SceneDelegate.swift in Sources */,
 				FAEDB1C729EB10A900805959 /* UserDefaultsManager.swift in Sources */,
+				FAEDB1E229EC170200805959 /* FireStoreManager.swift in Sources */,
+				FA085E3629EEB585001F5A3D /* AnniversaryCellViewModel.swift in Sources */,
 				FAB2868229EA9A5D000FD933 /* AnniversaryViewController.swift in Sources */,
 				FAEDB1BC29EADD8500805959 /* IncludeCalenderView.swift in Sources */,
+				FAEDB1D629EC030B00805959 /* RecommendDateCell.swift in Sources */,
+				FA085E3429EE7D91001F5A3D /* AnniversaryViewModel.swift in Sources */,
+				FAEDB1E429EC1D1E00805959 /* RecommendDateViewModel.swift in Sources */,
 				FAEDB1B829EADC2C00805959 /* PickTheDayOfOurFirstMeetViewController.swift in Sources */,
+				FA085E3029EE76A9001F5A3D /* AnniversaryCell.swift in Sources */,
 				FAB2868429EA9A6D000FD933 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA085E5229F0E21D001F5A3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA085E4229F0E21A001F5A3D /* OurToday_WidgetExtension */;
+			targetProxy = FA085E5129F0E21D001F5A3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FAB2866D29EA8F0D000FD933 /* LaunchScreen.storyboard */ = {
@@ -281,6 +530,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA085E5529F0E21D001F5A3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OurToday_WidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QNWYK9LQY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OurToday_Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OurToday_Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.clamp.OurToday.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FA085E5629F0E21D001F5A3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OurToday_WidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QNWYK9LQY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OurToday_Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OurToday_Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.clamp.OurToday.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		FAB2867129EA8F0D000FD933 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -331,7 +638,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_CFBundleDisplayName = "우리오늘";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -385,7 +693,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_CFBundleDisplayName = "우리오늘";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -398,62 +707,93 @@
 		FAB2867429EA8F0D000FD933 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OurToday/OurToday.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3X4LNN773;
+				DEVELOPMENT_TEAM = 5QNWYK9LQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OurToday/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "우리오늘";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.clamp.OurToday;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.clamp.OurToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		FAB2867529EA8F0D000FD933 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OurToday/OurToday.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3X4LNN773;
+				DEVELOPMENT_TEAM = 5QNWYK9LQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OurToday/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "우리오늘";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.clamp.OurToday;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.clamp.OurToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA085E5429F0E21D001F5A3D /* Build configuration list for PBXNativeTarget "OurToday_WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA085E5529F0E21D001F5A3D /* Debug */,
+				FA085E5629F0E21D001F5A3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FAB2865A29EA8F0B000FD933 /* Build configuration list for PBXProject "OurToday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -475,6 +815,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA085E2729EE24B2001F5A3D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		FA085E2A29EE5981001F5A3D /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -499,9 +855,37 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		FAEDB1DC29EC0E8600805959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA085E2829EE24B2001F5A3D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA085E2729EE24B2001F5A3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		FA085E2B29EE5981001F5A3D /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA085E2A29EE5981001F5A3D /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		FA88FDC229F0E6CA00CCF226 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA085E2729EE24B2001F5A3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FA88FDC429F0E6CA00CCF226 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA085E2729EE24B2001F5A3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		FAEDB1A929EAB50D00805959 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAEDB1A829EAB50D00805959 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -521,6 +905,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAEDB1BD29EADF8100805959 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		FAEDB1DD29EC0E8600805959 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1DC29EC0E8600805959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FAEDB1DF29EC0E8600805959 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEDB1DC29EC0E8600805959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
