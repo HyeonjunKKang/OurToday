@@ -25,6 +25,8 @@ final class DetailDeteInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureController()
         binding()
     }
     
@@ -44,7 +46,21 @@ final class DetailDeteInfoViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Actions
+    
+    @objc func handleBackButtonTapped(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Helpers
+    
+    private func configureController(){
+        let backButton = UIButton(type: .system)
+        backButton.setImage(#imageLiteral(resourceName: "Left Arrow").resize(to: CGSize(width: 30, height: 30)), for: .normal)
+        backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+    }
     
     private func binding() {
         navigationItem.title = viewModel.name
