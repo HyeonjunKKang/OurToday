@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import PhotosUI
+import Photos
 
 final class MainViewController: UIViewController{
     
@@ -17,6 +18,9 @@ final class MainViewController: UIViewController{
     let mainView = MainView()
     
     private var viewModel: MainViewModel
+    
+    weak var mainToAnniversaryDelegate: MainToAnniversaryDelegate?
+    
     
     // MARK: - LifeCycle
     
@@ -38,6 +42,19 @@ final class MainViewController: UIViewController{
         checkLoverBirth()
         
         binding()
+        
+        PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
+            switch status{
+            case .authorized:
+                print("앨범 권한 허용")
+            case .denied:
+                print("앨범 권한 거부")
+            case .restricted, .notDetermined:
+                print("선택하지않음")
+            default:
+                print("Default")
+            }
+        }
     }
     
     // MARK: - Initializer
@@ -57,7 +74,7 @@ final class MainViewController: UIViewController{
         let controller = SettingViewController()
         controller.delegate = self
         controller.imagedelegate = self
-        navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: false)
     }
     
     @objc func handleMyImageTapped(){
@@ -85,6 +102,7 @@ final class MainViewController: UIViewController{
                let inputText = textField.text{
                 self.viewModel.setMyNickname(nickName: inputText)
                 self.binding()
+                self.mainToAnniversaryDelegate?.didChangeLoveDate(lovedata: self.viewModel.getOnlyLoveModel)
             }
         }
         
@@ -108,6 +126,7 @@ final class MainViewController: UIViewController{
                let textField = textFields.first,
                let inputText = textField.text{
                 self.viewModel.setLoverNickname(nickName: inputText)
+                self.mainToAnniversaryDelegate?.didChangeLoveDate(lovedata: self.viewModel.getOnlyLoveModel)
                 self.binding()
             }
         }
@@ -228,12 +247,12 @@ extension MainViewController: PickDateDelegate{
         
         switch controller{
         case let _ as PickTheDayOfOurFirstMeetViewController:
-            print("DEBUG: It's PickTheDayOfOurFIrstMeetViewController")
             viewModel.setFirstLoveDay(date: selecteDay)
+            mainToAnniversaryDelegate?.didChangeLoveDate(lovedata: viewModel.getOnlyLoveModel)
 
         case let _ as PickBirthDayViewController:
-            print("DEBUG: It's PickBirthDayViewController")
             viewModel.setLoverBirthDay(date: selecteDay)
+            mainToAnniversaryDelegate?.didChangeLoveDate(lovedata: viewModel.getOnlyLoveModel)
             
         default:
             break
@@ -258,22 +277,26 @@ extension MainViewController: PHPickerViewControllerDelegate {
         let itemProvider = results.first?.itemProvider
         
         if let provider = itemProvider, provider.canLoadObject(ofClass: UIImage.self) {
-            provider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
-                guard let self = self, let image = object as? UIImage else {
-                    picker.dismiss(animated: true)
-                    return
-                }
-                DispatchQueue.main.async {
-                    if picker.view.tag == 1 {
-                        self.viewModel.setMyImage(image: image)
+            
+            DispatchQueue.global().async {
+                provider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
+                    guard let self = self, let image = object as? UIImage else {
+                        picker.dismiss(animated: true)
+                        return
                     }
-                    if picker.view.tag == 2 {
-                        self.viewModel.setLoverImage(image: image)
+                    DispatchQueue.main.async {
+                        if picker.view.tag == 1 {
+                            self.viewModel.setMyImage(image: image)
+                        }
+                        if picker.view.tag == 2 {
+                            self.viewModel.setLoverImage(image: image)
+                        }
+                        self.binding()
+                        picker.dismiss(animated: true)
                     }
-                    self.binding()
-                    picker.dismiss(animated: true)
                 }
             }
+            
         } else {
             picker.dismiss(animated: true)
         }
