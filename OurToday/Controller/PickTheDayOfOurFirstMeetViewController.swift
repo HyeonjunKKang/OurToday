@@ -49,6 +49,11 @@ extension PickTheDayOfOurFirstMeetViewController: FSCalendarDelegate{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let selectedDate = date
         
+        if date > Date(){
+            calendar.deselect(date)
+            return
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -58,4 +63,5 @@ extension PickTheDayOfOurFirstMeetViewController: FSCalendarDelegate{
         
         delegate?.pickDay(controller: self, selecteDay: newDate ?? selectedDate)
     }
+
 }
