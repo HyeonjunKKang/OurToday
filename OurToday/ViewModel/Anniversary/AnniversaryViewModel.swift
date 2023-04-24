@@ -40,7 +40,6 @@ final class AnniversaryViewModel{
         self.service.calculateAnniversary(loveModel: loveModel) { [weak self] anniversaryList in
             self?.anniversaryList = anniversaryList
             self?.loveModelDidChage?()
-            dump(self?.anniversaryList)
         }
     }
     
