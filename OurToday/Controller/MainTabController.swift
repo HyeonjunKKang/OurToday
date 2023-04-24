@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainTabController: UITabBarController{
-    
+
     // MARK: - Properties
     
     let loveModel: LoveModel
@@ -35,14 +35,19 @@ final class MainTabController: UITabBarController{
     // MARK: - Helper
     
     func configureViewController(){
-        
         view.backgroundColor = .white
-       
-        let main = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Home"), selectedImage: #imageLiteral(resourceName: "selected-Home"), rootViewController: MainViewController(viewModel: MainViewModel(loveModel: loveModel)))
+
+        let main = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Home"),
+                                                selectedImage: #imageLiteral(resourceName: "selected-Home"),
+                                                rootViewController: MainViewController(viewModel: MainViewModel(loveModel: loveModel)))
+        let mainViewController = main.viewControllers.first as? MainViewController
+        mainViewController?.mainToAnniversaryDelegate = self
         
-        let Anniversary = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Bulleted List"), selectedImage: #imageLiteral(resourceName: "selected-Bulleted List"), rootViewController: AnniversaryViewController(collectionViewLayout: UICollectionViewFlowLayout()))
-        
-        viewControllers = [main, Anniversary]
+        let anniversary = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "unselected-Bulleted List"),
+                                                       selectedImage: #imageLiteral(resourceName: "selected-Bulleted List"),
+                                                       rootViewController: AnniversaryViewController(viewModel: AnniversaryViewModel(loveModel: loveModel), collectionviewLayout: UICollectionViewFlowLayout()))
+
+        viewControllers = [main, anniversary]
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController{
@@ -58,4 +63,14 @@ final class MainTabController: UITabBarController{
         return nav
     }
     
+}
+
+extension MainTabController: MainToAnniversaryDelegate{
+    func didChangeLoveDate(lovedata: LoveModel) {
+        
+        let nav = viewControllers?.last as? UINavigationController
+        let anniversary = nav?.viewControllers.first as? AnniversaryViewController
+        
+        anniversary?.bind(lovedata: lovedata)
+    }
 }
