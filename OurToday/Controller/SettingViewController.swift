@@ -64,6 +64,8 @@ final class SettingViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureController(){
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "mainLogo"))
+
         let backButton = UIButton(type: .system)
         backButton.setImage(#imageLiteral(resourceName: "Left Arrow").resize(to: CGSize(width: 30, height: 30)), for: .normal)
         backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
