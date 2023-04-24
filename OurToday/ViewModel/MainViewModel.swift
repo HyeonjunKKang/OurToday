@@ -12,7 +12,12 @@ final class MainViewModel{
     
     // MARK: - Properties
     
-    let realm = try! Realm()
+    private var realm: Realm{
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.OurToday")
+        let realmURL = container?.appendingPathComponent("default.realm")
+        let config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+        return try! Realm(configuration: config)
+    }
     
     private var loveModel: LoveModel
     
@@ -103,18 +108,21 @@ final class MainViewModel{
     }
     
     func setMyImage(image: UIImage){
-        if let imageData = image.jpegData(compressionQuality: 0.3){
-            try! realm.write{
-                loveModel.myImage = imageData
+        DispatchQueue.main.async {
+            if let imageData = image.jpegData(compressionQuality: 0.3){
+                try! self.realm.write{
+                    self.loveModel.myImage = imageData
+                }
             }
         }
     }
     
     func setMainImage(image: UIImage){
-        DispatchQueue.main.async { [weak self] in
-            if let imageData = image.jpegData(compressionQuality: 0.3){
-                try! self?.realm.write{
-                    self?.loveModel.mainImage = imageData
+        DispatchQueue.main.async {
+            let cropedImage = self.cropImageTo6By4Ratio(image)
+            if let imageData = cropedImage?.jpegData(compressionQuality: 0.8){
+                try! self.realm.write{
+                    self.loveModel.mainImage = imageData
                 }
             }
         }
@@ -122,9 +130,11 @@ final class MainViewModel{
     }
     
     func setLoverImage(image: UIImage){
-        if let imageData = image.jpegData(compressionQuality: 0.3){
-            try! realm.write{
-                loveModel.loverImage = imageData
+        DispatchQueue.main.async {
+            if let imageData = image.jpegData(compressionQuality: 0.3){
+                try! self.realm.write{
+                    self.loveModel.loverImage = imageData
+                }
             }
         }
     }
@@ -165,4 +175,31 @@ final class MainViewModel{
             completion()
         }
     }
+    
+    
+    func cropImageTo6By4Ratio(_ image: UIImage) -> UIImage? {
+        guard let cgImage = image.cgImage else { return nil }
+        
+        let orientation = image.imageOrientation
+        let size = CGSize(width: CGFloat(cgImage.width), height: CGFloat(cgImage.height))
+        let format = image.imageRendererFormat
+        let renderer = UIGraphicsImageRenderer(size: size, format: format)
+        
+        let fixedImage = renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+        
+        let originalWidth = fixedImage.size.width
+        let originalHeight = fixedImage.size.height
+        let targetWidth = originalWidth
+        let targetHeight = originalWidth * 0.67
+        let x = (originalWidth - targetWidth) / 2
+        let y = (originalHeight - targetHeight) / 2
+        let cropRect = CGRect(x: x, y: y, width: targetWidth, height: targetHeight)
+        if let croppedCGImage = fixedImage.cgImage?.cropping(to: cropRect) {
+            return UIImage(cgImage: croppedCGImage)
+        }
+        return nil
+    }
+    
 }
